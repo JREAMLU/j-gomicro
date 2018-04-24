@@ -16,7 +16,7 @@ func main() {
 func RunMicroService() {
 	// Create a new service. Optionally include some options here.
 	service := micro.NewService(
-		micro.Name("greeter"),
+		micro.Name("go.micro.srv.greeter"),
 	)
 
 	// Init will parse the command line flags.
