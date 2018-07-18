@@ -1,10 +1,8 @@
 package main
 
 import (
-	"fmt"
-
-	"github.com/JREAMLU/jgomicro/controller"
-	proto "github.com/JREAMLU/jgomicro/proto"
+	"github.com/JREAMLU/j-micro/controller"
+	proto "github.com/JREAMLU/j-micro/proto"
 	micro "github.com/micro/go-micro"
 )
 
@@ -27,6 +25,6 @@ func RunMicroService() {
 
 	// Run the server
 	if err := service.Run(); err != nil {
-		fmt.Println(err)
+		panic(err)
 	}
 }

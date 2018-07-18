@@ -3,7 +3,7 @@ package client
 import (
 	"context"
 
-	proto "github.com/JREAMLU/jgomicro/proto"
+	proto "github.com/JREAMLU/j-micro/proto"
 	"github.com/micro/go-micro/client"
 )
 

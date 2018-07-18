@@ -3,7 +3,7 @@ package controller
 import (
 	"context"
 
-	proto "github.com/JREAMLU/jgomicro/proto"
+	proto "github.com/JREAMLU/j-micro/proto"
 )
 
 // Greeter greeter
