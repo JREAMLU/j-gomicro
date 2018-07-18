@@ -23,7 +23,7 @@ func TestHello(t *testing.T) {
 	})
 }
 
-func TestHelloOT(t *testing.T) {
+func TestHello2(t *testing.T) {
 	serviceName := "go.micro.srv.greeter"
 	Convey("Hello", t, func() {
 		c := microClient.NewClient()
