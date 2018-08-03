@@ -1,35 +1,32 @@
 package main
 
 import (
-	"time"
-
+	"github.com/JREAMLU/j-micro/config"
 	"github.com/JREAMLU/j-micro/controller"
 	proto "github.com/JREAMLU/j-micro/proto"
 	"github.com/JREAMLU/j-micro/service"
-	micro "github.com/micro/go-micro"
+
+	"github.com/JREAMLU/j-kit/go-micro/util"
 )
 
 func main() {
-	RunMicroService()
+	// load config
+	conf, err := config.Load()
+	if err != nil {
+		panic(err)
+	}
+
+	RunMicroService(conf)
 }
 
 // RunMicroService run micro service
-func RunMicroService() {
-	// Create a new service. Optionally include some options here.
-	ms := micro.NewService(
-		micro.Name("go.micro.srv.greeter"),
-		micro.Version("v1"),
-	)
-
-	// Init will parse the command line flags.
-	ms.Init(
-		micro.RegisterTTL(1*time.Second),
-		micro.RegisterInterval(1*time.Second),
-	)
+func RunMicroService(conf *config.GreeterConfig) {
+	ms := util.NewMicroService(conf.Config)
 
 	// Register handler
 	proto.RegisterGreeterHandler(ms.Server(), controller.NewGreeterHandler())
 
+	// init client
 	service.InitMicroClient(ms.Client())
 
 	// Run the server
